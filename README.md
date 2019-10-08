@@ -26,6 +26,6 @@ If you want the script to send the notification into your Gmail, you have to eit
 2.TBA
 
 # Potential Ideas 
-I wanted to add a feature in the scraper that would rotate the user's proxies and the user-agents so he or she would not get their IP banned accidentally. I had to have both because rotating user-agents without switching IPs could get your address blocked from the site faster than if you hadn't switched done the loop.
+I wanted to add a feature in the scraper that would rotate the user's proxies and the user-agents so he or she would not get their IP banned accidentally. I had to have both because rotating user-agents without switching IPs could get your address blocked from the site faster than if you hadn't done the loop.
 The problem was getting a reliable proxy without having to spend money. There is a multitude of free proxy servers on the web but most don't use HTTPS and gives the person monitoring your connection access to your data. 
 There are no proxy servers or VPNs on the web that are really 'free' because maintaining them cost money which the server managers either get through selling your data or other shady practices.
