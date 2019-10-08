@@ -22,8 +22,8 @@ If you want the script to send the notification into your Gmail, you have to eit
 
 ## MISCELLANEOUS COMMENTS:
 ## Possible Improvements:
- 1. This application could be made cleaner if ES6 with Node.js was used instead.
- 2.TBA
+1. This application could be made cleaner if ES6 with Node.js was used instead.
+2.TBA
 
 # Potential Ideas 
 I wanted to add a feature in the scraper that would rotate the user's proxies and the user-agents so he or she would not get their IP banned accidentally. I had to have both because rotating user-agents without switching IPs could get your address blocked from the site faster than if you hadn't switched done the loop.
