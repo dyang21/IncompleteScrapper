@@ -4,8 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-URL = "https://www.amazon.de/Pillars-Eternity-II-Deadfire-Obsidian-PC/dp/B07999KF6W"
-
+URL = "https://www.target.com/p/old-spice-swagger-2-in-1-shampoo-and-conditioner-25-3-fl-oz/"
 # Allows me to get information from my browser
 
 headers = {
@@ -14,6 +13,7 @@ headers = {
 
 
 page = requests.get(URL, headers=headers)
+print(page.status_code)
 
 
 soup1 = BeautifulSoup(page.content, 'html.parser')
