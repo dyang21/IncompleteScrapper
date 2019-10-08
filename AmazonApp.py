@@ -1,28 +1,68 @@
-# Allows me to get data from URL; BS4 is for parsing and pulling specific data
+
+#allows app to access URL,pull data,send mail, and set timed intervals
 
 import requests
 from bs4 import BeautifulSoup
+import smtplib
+import time
 
+#Doesn't work for some websites. Always check their /robots.txt page beforehand
+URL = "page with the product price"
 
-URL = "https://www.target.com/p/old-spice-swagger-2-in-1-shampoo-and-conditioner-25-3-fl-oz/"
 # Allows me to get information from my browser
 
-headers = {
-    "User-Agent":'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'
-                 }
+UA = {User-Agent: "Your User Agent"}
+
+def scrapePrice():
+    #query string 'headers' parameter to interact with website
+    page = requests.get(URL, headers=UA)
+    #pass lxml as parser or the html.parser if you don't want to install it. Doesn't work with bad html.
+    soup0 = BeautifulSoup(page.content, 'lxml')
+    soup1 = BeautifulSoup(soup0.prettify(), 'lxml')
+
+    #change up id or points of references. Use inspect if using chrome.
+    title = soup1.find(id="title").get_text()
+    rawPrice = soup1.find(id="price").get_text()
+    price = int(rawPrice.split("."))
+    
+    #change the numbers as needed for your ideal price range
+    if price < 123:
+       sendMail()
+
+    print(price)
+    print(title.strip())
+
+    if price > 123:
+       sendMail()
 
 
-page = requests.get(URL, headers=headers)
-print(page.status_code)
+def sendMail():
+    #connects to gmail server
+    mailServer = smtplib.SMTP('smtp.gmail.com', 587)
 
+    #establishes connection
+    mailServer.ehlo()
 
-soup1 = BeautifulSoup(page.content, 'html.parser')
-soup2 = BeautifulSoup(soup1.prettify(), 'html.parser')
+    #encrypts connection
+    mailServer.starttls()
+    mailServer.ehlo()
+    
+    #Actual user and pass if 'allow less secure apps' for gmail. If you did two step authentication, you can generate a password to put in. Other mail types might require the same procedure as gmail.
+    mailServer.login('myuser', 'mypass')
 
+    mailSubject = "It's at your ideal price"
 
-# Pull information out using f12
-title = soup2.find(id= "productTitle")
+    #link to productPage
+    mailBody = 'Link to product page'
 
-print(title)
+    # f or format allows me to insert subject. Kinda like JavaScript.
+    message = f"Subject: {mailSubject}\n\n{mailBody}"
+    
+    #parameters are (from,to,content)
+    mailServer.sendmail('fromEmail', 'toEmail', message)
+    mailServer.quit()
 
-# mission failed. make the html code in javascript.
+# Checks Every Three Days.
+while True:
+    scrapePrice()
+    time.sleep(60*60*24*3)
