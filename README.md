@@ -21,7 +21,6 @@ If you want the script to send the notification into your Gmail, you have to eit
 
 
 ## MISCELLANEOUS COMMENTS:
-
 ## Possible Improvements:
  1. This application could be made cleaner if ES6 with Node.js was used instead.
  2.TBA
