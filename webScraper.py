@@ -37,13 +37,13 @@ def scrapePrice():
 
 
 def sendMail():
-    #connects to gmail server
+    #Parameters are (Host, Port). Currently connects to Gmail server. Find your parameters by googling the server data of your mail type.
     mailServer = smtplib.SMTP('smtp.gmail.com', 587)
 
     #establishes connection
     mailServer.ehlo()
 
-    #encrypts connection
+    #encrypts connection for security
     mailServer.starttls()
     mailServer.ehlo()
     
