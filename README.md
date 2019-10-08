@@ -17,7 +17,7 @@ If you want the script to send the notification into your Gmail, you have to eit
 
 ## Issues
 1. Doesn't work on prices for sites such as Amazon or Target. Return None values.
-2. This app has to run in the background to work. This could be remedied if the user has another server to run it on. However, that costs money to maintain it.
+2. This app has to run in the background to work. This could be remedied if the user has another server to run it on. However, that costs money to maintain.
 
 
 ## MISCELLANEOUS COMMENTS:
