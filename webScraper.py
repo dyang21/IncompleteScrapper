@@ -11,7 +11,7 @@ URL = "page with the product price"
 
 # Allows me to get information from my browser
 
-UA = {User-Agent: "Your User Agent"}
+UA = {"User-Agent": "Your User Agent"}
 
 def scrapePrice():
     #query string 'headers' parameter to interact with website
