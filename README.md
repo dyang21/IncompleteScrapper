@@ -11,6 +11,8 @@
  This script allows the user to monitor product prices on web pages. It gets the price every three days to check if it's within your ideal price range. If it's at that range, it will send you an email notifying you of this. 
  
  It is easily customizable; you can adjust the timed intervals between its request, price range, email type, as well as various other components to your liking. 
+ 
+ Edit 11/6: Now works for amazon prices. Just keep in mind that the id changes
 
 ## Note on Gmail Usage:
 If you want the script to send the notification into your Gmail, you have to either obtain an App password for two-step authentication and place it into the mailServer.login password parameter or enable 'allow less secure apps' for your account.
