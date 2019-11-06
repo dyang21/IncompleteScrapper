@@ -7,6 +7,7 @@ import smtplib
 import time
 
 #Doesn't work for some websites. Always check their /robots.txt page beforehand
+#Now it works for Amazon.
 URL = "page with the product price"
 
 # Allows me to get information from my browser
@@ -21,16 +22,17 @@ def scrapePrice():
     soup1 = BeautifulSoup(soup0.prettify(), 'lxml')
 
     #change up id or points of references. Use inspect if using chrome.
-    title = soup1.find(id="title").get_text()
-    rawPrice = soup1.find(id="price").get_text()
+    title = soup1.find(id="title").get_text().strip()
+    rawPrice = soup1.find(id="price").get_text().strip()
     price = int(rawPrice.split("."))
     
     #change the numbers as needed for your ideal price range
     if price < 123:
-       sendMail()
+        #how about don't send it
+       placeholder = "for your action"
 
     print(price)
-    print(title.strip())
+    print(title)
 
     if price > 123:
        sendMail()
